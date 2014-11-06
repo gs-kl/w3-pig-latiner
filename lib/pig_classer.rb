@@ -1,7 +1,6 @@
 class PigClasser
   def self.translate input
     input.gsub(/\b\w{1,}\b/) do |a|
-      output = ""
       if a[0..1].match(/qu/)
         output = a[2..-1] + "quay"
       elsif a[1..2].match(/qu/)
