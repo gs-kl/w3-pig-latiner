@@ -10,8 +10,7 @@ class PigLatin
       elsif a[1..2].match(/qu/)
         output = a[3..-1] + a[0] + "quay"
       elsif not a[0].match(/[aeiou]/)
-        initial_consonants = a.slice(/\b[^aeiou]{1,}/)
-        output = a.gsub(/\b[^aeiou]{1,}/, "") + initial_consonants + "ay"
+        output = a.gsub(/\b[^aeiou]{1,}/, "") + a.slice(/\b[^aeiou]{1,}/) + "ay"
       else
         output = a + "ay"
       end
