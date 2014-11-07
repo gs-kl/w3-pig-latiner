@@ -4,13 +4,13 @@ class PigLatin
   end
 
   def translate
-    @input.gsub(/\b\w{1,}\b/) do |a|
+    @input.gsub(/\w+/) do |a|
       if a[0..1].match(/qu/)
         output = a[2..-1] + "quay"
       elsif a[1..2].match(/qu/)
         output = a[3..-1] + a[0] + "quay"
-      elsif not a[0].match(/[aeiou]/)
-        output = a.gsub(/\b[^aeiou]{1,}/, "") + a.slice(/\b[^aeiou]{1,}/) + "ay"
+      elsif a[0].match(/[^aeiou]/)
+        output = a.sub(/\b[^aeiou]+/, "") + a.slice(/\b[^aeiou]+/) + "ay"
       else
         output = a + "ay"
       end
